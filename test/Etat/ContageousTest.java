@@ -1,5 +1,11 @@
 package Etat;
-
+/**
+ * La classe COntageousTest execute les tests JUnit des méthodes la classe Contageous
+ * 
+ * @author Etienne Strobbe
+ * @version 1.0.0
+ * 
+ */
 import static org.junit.Assert.*;
 import org.junit.Test;
 

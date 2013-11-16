@@ -1,7 +1,13 @@
 package Maladie;
 import static org.junit.Assert.*;
 import org.junit.Test;
-
+/**
+ * La classe H1N1Test execute les tests JUnit des méthodes la classe H1N1
+ * 
+ * @author Etienne Strobbe
+ * @version 1.0.0
+ * 
+ */
 public class H1N1Test {
 	
 	private H1N1 test;

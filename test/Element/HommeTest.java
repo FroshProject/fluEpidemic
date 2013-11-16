@@ -1,5 +1,11 @@
 package Element;
-
+/**
+ * La classe HommeTest execute les tests JUnit des méthodes la classe Homme
+ * 
+ * @author Etienne Strobbe
+ * @version 1.0.0
+ * 
+ */
 
 import static org.junit.Assert.*;
 import org.junit.Test;

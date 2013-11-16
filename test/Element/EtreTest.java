@@ -3,7 +3,13 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import Etat.*;
 import Maladie.*;
-
+/**
+ * La classe EtreTest execute les tests JUnit des méthodes la classe Etre
+ * 
+ * @author Etienne Strobbe
+ * @version 1.0.0
+ * 
+ */
 
 public class EtreTest {
 	private Etre test;

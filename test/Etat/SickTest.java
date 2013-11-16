@@ -1,5 +1,11 @@
 package Etat;
-
+/**
+ * La classe SickTest execute les tests JUnit des méthodes la classe Sick
+ * 
+ * @author Etienne Strobbe
+ * @version 1.0.0
+ * 
+ */
 import static org.junit.Assert.*;
 import org.junit.Test;
 
