@@ -491,7 +491,22 @@ public class Terrain {
 		this.nbJour++;
 		this.dessiner();
     }
-
+    
+    @Override
+    public boolean equals(Object o){
+    	Terrain tmp = (Terrain)o;
+    	boolean struct =(this.taille == tmp.taille)&&(this.nbJour == tmp.nbJour)&&(this.nbHomme == tmp.nbHomme);
+    	if(struct){
+    		for(int i=0;i<taille;i++){
+    			for(int j=0;j<taille;j++){
+    				if(!(this.leTerrain[i][j].equals(tmp.leTerrain[i][j]))){
+    					return false;
+    				}
+    			}
+    		}
+    	}
+    	return true;
+    }
 	public static void main(String [] args) {
 		Terrain t = new Terrain(30);
 		t.dessiner();

@@ -1,4 +1,6 @@
 package Etat;
+
+
 /**
  * Dead est une classe d'Etat faisant parti du Pattern d'Etat. Elle met un Etre a l'etat de Mort.
  *
@@ -38,4 +40,10 @@ public class Dead implements Etat {
 	public String numEtat() {
 		return "☠";
 	}
+	
+	@Override
+	  public boolean equals(Object o){
+		  Etat tmp = (Etat)o;
+		  return (this.numEtat().equals(tmp.numEtat()))&&(this.getTpsEtat() == tmp.getTpsEtat());
+	  }
 }

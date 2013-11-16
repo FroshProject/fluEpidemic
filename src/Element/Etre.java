@@ -238,7 +238,12 @@ public class Etre {
 	public String getType() {
 		return "E";
 	}
-
+	
+	@Override
+	  public boolean equals(Object o){
+		  Etre tmp = (Etre)o;
+		  return (this.getStateDay() == tmp.getStateDay())&&(this.getVirus().equals(tmp.getVirus()))&&(this.getState().equals(tmp.getState()));
+	  }
 	/**
 	 * Methode permettant d'afficher un Etre (Un Etre est considerer comme vide dans le Terrain, car il n'a pas de caracteristiques physique).
 	 * 

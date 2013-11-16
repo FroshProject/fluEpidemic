@@ -44,4 +44,9 @@ public class Recovering implements Etat {
 	public String numEtat() {
 		return "3";
 	}
+	@Override
+	  public boolean equals(Object o){
+		  Etat tmp = (Etat)o;
+		  return (this.numEtat().equals(tmp.numEtat()))&&(this.getTpsEtat() == tmp.getTpsEtat());
+	  }
 }

@@ -1,4 +1,6 @@
 package Etat;
+
+
 /**
  * Etat est une interface creant le pattern Etat.
  *
@@ -35,4 +37,9 @@ public interface Etat {
 	 * @return La duree de l'etat.
 	 */
 	public int getTpsEtat();
+	
+	@Override
+	 public boolean equals(Object o);
+	
+	
 }

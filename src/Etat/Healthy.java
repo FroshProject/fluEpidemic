@@ -38,4 +38,10 @@ public class Healthy implements Etat {
 	public String numEtat() {
 		return "0";
 	}
+	
+	@Override
+	  public boolean equals(Object o){
+		  Etat tmp = (Etat)o;
+		  return (this.numEtat().equals(tmp.numEtat()))&&(this.getTpsEtat() == tmp.getTpsEtat());
+	  }
 }
