@@ -21,9 +21,9 @@ public class Chicken extends Animaux {
 	public Chicken () {
 		super();
 		if (this.getState().numEtat() == "1"){
-            		this.setVirus(new H5N1());
+            		this.setVirus(Virus.H5N1);
 		}
-		immune = new H5N1();
+		immune = Virus.H5N1;
 	}
 
 	/**

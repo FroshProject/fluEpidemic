@@ -269,7 +269,7 @@ public class Terrain {
 					Etat state1 = Etat.Sick; // Creation d'un nouvel Etat Sick pour le transmettre
 					Virus virus1 = this.leTerrain[x][y].getContent().getVirus(); // On recupere le Virus transmit.
 					if (alternative.leTerrain[x][y].getContent().getImmune() == null || 
-						!(virus1.getClass() == alternative.leTerrain[x][y].getContent().getImmune().getClass())) { // Verification que la Cellule n'es pas immunise contre le Virus
+						!(virus1 == alternative.leTerrain[x][y].getContent().getImmune())) { // Verification que la Cellule n'es pas immunise contre le Virus
 						if(rdnum == 0 && this.leTerrain[x][y].isHealthy()) { // Verification de la bonne sante de la cellule a contaminer.
 							alternative.leTerrain[x][y].getContent().setState(state1); // Mise en place de l'Etat
 							alternative.leTerrain[x][y].getContent().setVirus(virus1); // Mise en place du Virus
@@ -312,7 +312,7 @@ public class Terrain {
 		for(int i = 1; i < this.taille; i++) { // Parcours le Terrain
 	    	for(int j = 1; j< this.taille; j++) {
                 int rdnum = rd.nextInt(4); // Creer un chiffre en 1 et 4
-				Virus virus = new H5N1(); // Instancie le nouveau virus
+				Virus virus = Virus.H5N1; // Instancie le nouveau virus
                 if ((rdnum == 0 && this.leTerrain[i][j].isPig() && !this.leTerrain[i][j].isDead()) &&
 					(alternative.leTerrain[i][j].isPig() && !alternative.leTerrain[i][j].isDead())) {
 					alternative.leTerrain[i][j].getContent().setState(Etat.Sick);

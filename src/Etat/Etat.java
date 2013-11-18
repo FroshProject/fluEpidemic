@@ -1,13 +1,14 @@
 package src.Etat;
 
 /**
- * Etat est un enum creant le pattern Etat.
+ * Etat est un type énuméré contenant les Etats de bas ainsi que leur comportement.
  *
  * @author Roumegue Jérémy
  * @version 1.0.0
  */
 public enum Etat {
-	  //Objets directement construits
+	
+	  //Etats de base, dont on a besoin lors de l'execution.
 	  Contageous(3,true,"2"),
 	  Dead (0,false,"☠"),
 	  Healthy (0,false,"0"),
@@ -22,13 +23,13 @@ public enum Etat {
 	  private int tpsEtat;
 	  
 	  /**
-		 * Variable permettant de savoir si un 
+		 * Variable permettant de savoir si un Etat est contagieux ou non.
 		 *
 		 */
 	  private boolean isContageous;
 	  
 	  /**
-		 * Variable correspondant à la duree de l'Etat. 0 est la duree par defaut (infini).
+		 * Variable permettant d'identifié l'Etat lors de l'affichage.
 		 *
 		 */
 	  private String numEtat;

@@ -20,9 +20,9 @@ public class Pig extends Animaux {
 	public Pig () {
         	super();
 		if (this.getState().numEtat() == "1"){
-            		this.setVirus(new H5N1());
+            		this.setVirus(Virus.H5N1);
 		}
-		immune = new H1N1();
+		immune = Virus.H1N1;
 	}
 
 	/**

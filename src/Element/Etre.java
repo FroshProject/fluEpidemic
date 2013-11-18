@@ -37,7 +37,7 @@ public class Etre {
 	 */
 	public Etre () {
 	    this.state = Etat.Healthy;
-		this.virus = new Virus();
+		this.virus = Virus.None;
 		this.immune = null;
 	}
 

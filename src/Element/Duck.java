@@ -20,9 +20,9 @@ public class Duck extends Animaux {
 	public Duck () {
 		super();
 		if (this.isSick()){
-            		this.setVirus(new H5N1());
+            		this.setVirus(Virus.H5N1);
 		}
-		immune = new H5N1();
+		immune = Virus.H5N1;
 	}
 
 	/**

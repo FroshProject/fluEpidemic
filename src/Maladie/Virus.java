@@ -3,37 +3,37 @@ package src.Maladie;
 
 /**
  * 
- * Virus est la classe mere des deux types de Virus.
+ * Virus est un enum contenant les Virus de base.
  *
  * @author Roumegue Jeremy
  * @version 1.0.0
  * 
  */
-public class Virus {
-    protected String numVirus;
-	protected int incubation;
 
-	/**
-	 * Constructeur par defaut d'un Virus
-	 */
-    public Virus () {
-        this.numVirus = "0";
-		this.incubation = 0;
-    }
+public enum Virus {
+	  //Virus de base.
+	  H1N1("2", 3),
+	  H5N1("1", 4), 
+	  None("O", 0);
+	  
+	  
+	  private String numVirus;
+	  private int incubation;
+	   
+	  //Constructeur
+	  Virus (String numVirus, int incubation) {
+	        this.numVirus = numVirus;
+			this.incubation = incubation;
+	    }
+	  
+	    /**
+	     * 
+	     * Methode permettant de connaitre combien de temps faut t'il avant d'etre contagieux.
+	     * 
+	     * @return Le temps d'incubation du Virus.
+	     */
+	  public int getIncubation() {
+			return this.incubation;
+		}
 
-    /**
-     * 
-     * Methode permettant de connaitre combien de temps faut t'il avant d'etre contagieux.
-     * 
-     * @return Le temps d'incubation du Virus.
-     */
-	public int getIncubation() {
-		return this.incubation;
 	}
-	
-	@Override
-	  public boolean equals(Object o){
-		  Virus tmp = (Virus)o;
-		  return (this.incubation == tmp.incubation)&&(this.numVirus.equals(tmp.numVirus));
-	  }
-}
