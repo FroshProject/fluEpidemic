@@ -1,7 +1,7 @@
-package Element;
+package src.Element;
 
-import Maladie.*;
-import Etat.*;
+import src.Maladie.*;
+import src.Etat.*;
 
 /**
  * La class Etre est la classe mere des classes Homme, Pig, Duck et Chicken. Elle contient toutes les methodes pour modifier ou construire un Etre.
@@ -36,7 +36,7 @@ public class Etre {
 	 * Constructeur par defaut.
 	 */
 	public Etre () {
-	    this.state = new Healthy();
+	    this.state = Etat.Healthy;
 		this.virus = new Virus();
 		this.immune = null;
 	}
@@ -133,8 +133,7 @@ public class Etre {
 	 * @return un booleen. Vrai si l'Etre est Healthy, false sinon.
 	 */
 	public boolean isHealthy() {
-		Etat check = new Healthy();
-		return check.getClass() == this.getState().getClass();
+		return this.getState()==Etat.Healthy;
 	}
 
 	/**
@@ -143,8 +142,7 @@ public class Etre {
 	 * @return un booleen. Vrai si l'Etre est Dead, false sinon.
 	 */
 	public boolean isDead() {
-		Etat check = new Dead();
-		return check.getClass() == this.getState().getClass();
+		return this.getState()==Etat.Dead;
 	}
 
 	/**
@@ -153,8 +151,7 @@ public class Etre {
 	 * @return un booleen. Vrai si l'Etre est Sick, false sinon.
 	 */
 	public boolean isSick() {
-		Etat check = new Sick();
-		return check.getClass() == this.getState().getClass();
+		return this.getState()==Etat.Sick;
 	}
 
 	/**
@@ -163,8 +160,7 @@ public class Etre {
 	 * @return un booleen. Vrai si l'Etre est Recovering, false sinon.
 	 */
 	public boolean isRecovering() {
-		Etat check = new Recovering();
-		return check.getClass() == this.getState().getClass();
+		return this.getState()==Etat.Recovering;
 	}
 
 	/**
@@ -173,7 +169,7 @@ public class Etre {
 	 * @return un booleen. Vrai si l'Etre est Contageous, false sinon.
 	 */
 	public boolean isContageous() {
-		return this.getState().setContagieux();
+		return this.getState()==Etat.Contageous;
 	}
 
 	/**
@@ -185,10 +181,10 @@ public class Etre {
 	public void setSick(Etre alternate, int rdnum) {
 		if (this.getStateDay() == this.getVirus().getIncubation()) { // Verifie que les temps concorde entre le nombre de jour passe dans l'Etat Sick avec le Virus.
 	       alternate.resetStateDay();
-	       alternate.setState(new Contageous());
+	       alternate.setState(Etat.Contageous);
 	    } else if (rdnum == 0){
 	       alternate.resetStateDay();
-	       alternate.setState(new Contageous());
+	       alternate.setState(Etat.Contageous);
 	    } else {
 	       alternate.incStateDay();
 	    }
@@ -204,7 +200,7 @@ public class Etre {
 	public void setRecovering(Etre alternate) {
 		if (this.getStateDay() == this.getState().getTpsEtat()) { // Verifie que les temps concorde entre le nombre de jour passe dans l'Etat Recovering.
 	       alternate.resetStateDay();
-	       alternate.setState(new Healthy());
+	       alternate.setState(Etat.Healthy);
 	    } else {
 	       alternate.incStateDay();
 	    }
@@ -220,11 +216,11 @@ public class Etre {
 		if (this.getStateDay() == this.getState().getTpsEtat()) { // Verifie que les temps concorde entre le nombre de jour passe dans l'Etat Contageous.
 			Pig tryPig = new Pig();
 			if (this.getClass() == tryPig.getClass()) {
-				alternate.setState(new Recovering());
+				alternate.setState(Etat.Recovering);
 			} else if(rdnum == 0) {
-			    alternate.setState(new Dead());
+			    alternate.setState(Etat.Dead);
 			} else {
-			    alternate.setState(new Recovering());
+			    alternate.setState(Etat.Recovering);
 			}
 			alternate.resetStateDay();
 		}
@@ -238,7 +234,12 @@ public class Etre {
 	public String getType() {
 		return "E";
 	}
-
+	
+	@Override
+	  public boolean equals(Object o){
+		  Etre tmp = (Etre)o;
+		  return (this.getStateDay() == tmp.getStateDay())&&(this.getVirus().equals(tmp.getVirus()))&&(this.getState().equals(tmp.getState()));
+	  }
 	/**
 	 * Methode permettant d'afficher un Etre (Un Etre est considerer comme vide dans le Terrain, car il n'a pas de caracteristiques physique).
 	 * 

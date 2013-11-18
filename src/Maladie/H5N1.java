@@ -1,4 +1,4 @@
-package Maladie;
+package src.Maladie;
 /**
  * H5N1 est la classe contenant les méthodes spécifiques au Virus H5N1. Cette classe hérite de la classe 'Virus'
  *

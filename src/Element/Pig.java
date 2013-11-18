@@ -1,6 +1,6 @@
-package Element;
+package src.Element;
 
-import Maladie.*;
+import src.Maladie.*;
 
 /**
  * Pig est la classe contenant les méthodes spécifiques au Pig. Cette classe hérite de la classe 'Etre' et 'Animaux'

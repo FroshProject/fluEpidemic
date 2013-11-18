@@ -1,4 +1,4 @@
-package Element;
+package src.Element;
 /**
  * Homme est la classe contenant les méthodes spécifiques au Homme. Cette classe hérite de la classe 'Etre'
  * 

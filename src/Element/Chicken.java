@@ -1,6 +1,6 @@
-package Element;
+package src.Element;
 
-import Maladie.*;
+import src.Maladie.*;
 
 /**
  * Chicken est la classe contenant les méthodes spécifiques au Chicken. Cette classe hérite de la classe 'Etre' et 'Animaux'

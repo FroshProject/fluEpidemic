@@ -1,5 +1,5 @@
-package Main;
-import Element.*;
+package src.Main;
+import src.Element.*;
 
 /**
  * Cellule est la classe contenant les differents Etre. Elle donne les informations globales les concernants.
@@ -249,6 +249,12 @@ public class Cellule {
 			Chicken test = new Chicken();
             return (test.getClass() == this.getContent().getClass());
       }
+	  
+	  @Override
+	  public boolean equals(Object o){
+		  Cellule tmp = (Cellule)o;
+		  return (this.getX() == tmp.getX())&&(this.getY() == tmp.getY())&&(this.getContent().equals(tmp.getContent()));
+	  }
 
 	/**
 	 * Methode d'affichage d'une Cellule.

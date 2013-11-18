@@ -1,6 +1,6 @@
-package Element;
+package src.Element;
 
-import Etat.*;
+import src.Etat.*;
 
 /**
  * Animaux est la classe contenant les methodes specifiques aux animaux. Cette classe herite de la classe 'Etre'
@@ -25,9 +25,9 @@ public class Animaux extends Etre {
 	public Animaux () {
 		int rdnum = rd.nextInt(2); // Creer un nombre aleatoire
 		if(rdnum == 0) { // Si le nombre est 0, on rend l'animal malade.
-		    this.setState(new Sick());
+		    this.setState(Etat.Sick);
 		} else { // Sinon l'animal est creer en bonne sante.
-		    this.setState(new Healthy());
+		    this.setState(Etat.Healthy);
 		}
 	}
 }

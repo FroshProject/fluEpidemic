@@ -1,8 +1,8 @@
-package Main;
+package src.Main;
 import java.util.Random;
-import Element.*;
-import Maladie.*;
-import Etat.*;
+import src.Element.*;
+import src.Maladie.*;
+import src.Etat.*;
 
 /**
  * La classe Terrain est le modèle du jeu, on va gerer tous les deplacements, les gestions des etats, les gestions des variables et les gestions des contaminations.
@@ -266,7 +266,7 @@ public class Terrain {
 		for(int x = i - 1; x < i + 1; x++) { // Boucle sur toutes les cellules autour (8 cases)
 			for(int y = j - 1; y < j + 1; y++) {
 				if(x != i && y != j){ // Elimine la Cellule qui infecte les autres
-					Etat state1 = new Sick(); // Creation d'un nouvel Etat Sick pour le transmettre
+					Etat state1 = Etat.Sick; // Creation d'un nouvel Etat Sick pour le transmettre
 					Virus virus1 = this.leTerrain[x][y].getContent().getVirus(); // On recupere le Virus transmit.
 					if (alternative.leTerrain[x][y].getContent().getImmune() == null || 
 						!(virus1.getClass() == alternative.leTerrain[x][y].getContent().getImmune().getClass())) { // Verification que la Cellule n'es pas immunise contre le Virus
@@ -315,7 +315,7 @@ public class Terrain {
 				Virus virus = new H5N1(); // Instancie le nouveau virus
                 if ((rdnum == 0 && this.leTerrain[i][j].isPig() && !this.leTerrain[i][j].isDead()) &&
 					(alternative.leTerrain[i][j].isPig() && !alternative.leTerrain[i][j].isDead())) {
-					alternative.leTerrain[i][j].getContent().setState(new Sick());
+					alternative.leTerrain[i][j].getContent().setState(Etat.Sick);
 					alternative.leTerrain[i][j].getContent().setVirus(virus);
 				}
 	    	}
@@ -491,7 +491,22 @@ public class Terrain {
 		this.nbJour++;
 		this.dessiner();
     }
-
+    
+    @Override
+    public boolean equals(Object o){
+    	Terrain tmp = (Terrain)o;
+    	boolean struct =(this.taille == tmp.taille)&&(this.nbJour == tmp.nbJour)&&(this.nbHomme == tmp.nbHomme);
+    	if(struct){
+    		for(int i=0;i<taille;i++){
+    			for(int j=0;j<taille;j++){
+    				if(!(this.leTerrain[i][j].equals(tmp.leTerrain[i][j]))){
+    					return false;
+    				}
+    			}
+    		}
+    	}
+    	return true;
+    }
 	public static void main(String [] args) {
 		Terrain t = new Terrain(30);
 		t.dessiner();

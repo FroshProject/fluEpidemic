@@ -1,4 +1,6 @@
-package Maladie;
+package src.Maladie;
+
+
 /**
  * 
  * Virus est la classe mere des deux types de Virus.
@@ -28,4 +30,10 @@ public class Virus {
 	public int getIncubation() {
 		return this.incubation;
 	}
+	
+	@Override
+	  public boolean equals(Object o){
+		  Virus tmp = (Virus)o;
+		  return (this.incubation == tmp.incubation)&&(this.numVirus.equals(tmp.numVirus));
+	  }
 }
